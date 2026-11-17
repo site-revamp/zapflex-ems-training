@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -324,6 +323,11 @@
       color: white;
       cursor: pointer;
       font-size: 25px;
+    }
+
+    /* FIX: mobile nav is hidden by default (desktop). It only shows on small screens when opened. */
+    .mobile-nav {
+      display: none;
     }
 
     /* HERO */
@@ -2564,6 +2568,11 @@
 
     document.addEventListener("keydown", event => {
       if (event.key === "Escape") closeMenu();
+    });
+
+    // Close the mobile menu if the window is resized to desktop width
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 820) closeMenu();
     });
 
     // Accessible FAQ accordion
